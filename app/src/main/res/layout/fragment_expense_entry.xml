@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ExpenseEntryFragment">
+
+
+    <TextView
+        android:id="@+id/tv_banner_expense"
+        android:layout_width="221dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="34dp"
+        android:gravity="center"
+        android:text="ثبت هزینه"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatSpinner
+
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginTop="24dp"
+        android:entries="@array/expense_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_banner_expense" />
+
+    <EditText
+        android:id="@+id/expense_entry_amount"
+        android:layout_width="260dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="مبلغ هزینه"
+        android:inputType="numberDecimal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <EditText
+        android:id="@+id/expense_entry_date"
+        android:layout_width="260dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="تاریخ هزینه"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expense_entry_amount" />
+
+    <EditText
+        android:id="@+id/expense_entry_description"
+        android:layout_width="260dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="توضیحات"
+        android:inputType="text"
+        android:textDirection="rtl"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expense_entry_date" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="ذخیره"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expense_entry_description" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

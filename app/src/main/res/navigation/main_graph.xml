@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/expenseEntryFragment"
+        android:name="com.mylab.expensetracker.ui.ExpenseEntryFragment"
+        android:label="ثبت هزینه"
+        tools:layout="@layout/fragment_expense_entry" >
+        <argument
+            android:name="amountType"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.mylab.expensetracker.ui.MainFragment"
+        android:label="خانه"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_expenseEntryFragment"
+            app:destination="@id/expenseEntryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_incomeEntryFragment"
+            app:destination="@id/incomeEntryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomeEntryFragment"
+        android:name="com.mylab.expensetracker.ui.IncomeEntryFragment"
+        android:label="ثبت درآمد" >
+        <argument
+            android:name="amountType"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.mylab.expensetracker.ui.ListFragment"
+        android:label="لیست هزینه ها"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_editDeleteFragment"
+            app:destination="@id/editDeleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDeleteFragment"
+        android:name="com.mylab.expensetracker.ui.EditDeleteFragment"
+        android:label="ویرایش"
+        tools:layout="@layout/fragment_edit_delete" >
+        <argument
+            android:name="expense"
+            app:argType="com.mylab.expensetracker.datamodel.Expense" />
+    </fragment>
+</navigation>

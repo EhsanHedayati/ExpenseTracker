@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Expense Tracker</string>
+    <string-array name="expense_categories">
+        <item>مسکن(شامل هزینه های : کرایه ، آب ، برق ، گاز))</item>
+        <item>خوراکی و دخانی</item>
+        <item>حمل و نقل</item>
+        <item>وسیله نقلیه</item>
+        <item>تفریحات و سرگرمی</item>
+        <item>ارتباطات(شامل هزینه های : تلفن ثابت ، همراه ، اینترنت)</item>
+        <item>پوشاک و کفش</item>
+        <item>بهداشت و درمان</item>
+        <item>کالاها و خدمات متفرقه</item>
+        <item>پس انداز</item>
+        <item>سرمایه گذاری</item>
+
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
