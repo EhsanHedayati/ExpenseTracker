@@ -101,7 +101,7 @@ class ReportsFragment : Fragment() {
             reportsViewModel.incomeExpenseSumQuery(startDate ?: 0, endDate ?: 0)
             reportsViewModel.incomeExpense.observe(viewLifecycleOwner) {
 
-                val expenseIncome = ExpenseIncomeBar(it[0], it[1])
+                val expenseIncome = ExpenseIncomeBar(it[1], it[0])
                 findNavController().navigate(
                     ReportsFragmentDirections.actionReportsFragmentToBarChartFragment1(
                         expenseIncome
