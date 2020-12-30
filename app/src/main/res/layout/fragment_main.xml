@@ -40,5 +40,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_expense" />
 
+    <Button
+        android:id="@+id/button_reports"
+        android:layout_width="242dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:text="گزارشات"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_list" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

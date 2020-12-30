@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_expense_entry" >
         <argument
             android:name="amountType"
-            app:argType="boolean" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_mainFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_reportsFragment"
+            app:destination="@id/reportsFragment" />
     </fragment>
     <fragment
         android:id="@+id/incomeEntryFragment"
@@ -35,7 +38,7 @@
         android:label="ثبت درآمد" >
         <argument
             android:name="amountType"
-            app:argType="boolean" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -49,10 +52,40 @@
     <fragment
         android:id="@+id/editDeleteFragment"
         android:name="com.mylab.expensetracker.ui.EditDeleteFragment"
-        android:label="ویرایش"
+        android:label="ویرایش و حذف"
         tools:layout="@layout/fragment_edit_delete" >
         <argument
             android:name="expense"
             app:argType="com.mylab.expensetracker.datamodel.Expense" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.mylab.expensetracker.ui.ReportsFragment"
+        android:label="گزارشات"
+        tools:layout="@layout/fragment_reports" >
+        <action
+            android:id="@+id/action_reportsFragment_to_barChartFragment"
+            app:destination="@id/barChartFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_barChartFragment1"
+            app:destination="@id/barChartFragment1" />
+    </fragment>
+    <fragment
+        android:id="@+id/barChartFragment"
+        android:name="com.mylab.expensetracker.ui.BarChartFragment"
+        android:label="نمودار هزینه ها"
+        tools:layout="@layout/fragment_bar_chart" >
+        <argument
+            android:name="expenseBarList"
+            app:argType="com.mylab.expensetracker.datamodel.ExpenseBar" />
+    </fragment>
+    <fragment
+        android:id="@+id/barChartFragment1"
+        android:name="com.mylab.expensetracker.ui.BarChartFragment1"
+        android:label="مقایسه هزینه ها درآمدها"
+        tools:layout="@layout/fragment_bar_chart1" >
+        <argument
+            android:name="expenseincomebar"
+            app:argType="com.mylab.expensetracker.datamodel.ExpenseIncomeBar" />
     </fragment>
 </navigation>

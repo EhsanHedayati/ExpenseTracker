@@ -40,7 +40,7 @@ class EditDeleteFragment : Fragment() {
 
 
         receivedExpense = EditDeleteFragmentArgs.fromBundle(requireArguments()).expense
-        if (receivedExpense.amountType) {
+        if (receivedExpense.amountType == 1) {
             view.edit_delete_circleView.setImageResource(R.drawable.income)
         } else {
             view.edit_delete_circleView.setImageResource(R.drawable.expense)

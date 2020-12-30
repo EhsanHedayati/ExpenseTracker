@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Expense Tracker</string>
     <string-array name="expense_categories">
-        <item>مسکن(شامل هزینه های : کرایه ، آب ، برق ، گاز))</item>
+        <item>مسکن</item>
         <item>خوراکی و دخانی</item>
         <item>حمل و نقل</item>
-        <item>وسیله نقلیه</item>
+        <item>وسیله نقله</item>
         <item>تفریحات و سرگرمی</item>
-        <item>ارتباطات(شامل هزینه های : تلفن ثابت ، همراه ، اینترنت)</item>
+        <item>ارتباطات</item>
         <item>پوشاک و کفش</item>
         <item>بهداشت و درمان</item>
         <item>کالاها و خدمات متفرقه</item>

@@ -30,7 +30,7 @@ class ExpenseListAdapter :
         holder.itemView.element_text_amount.text = item.amount.toBigDecimal().toPlainString()
         holder.itemView.element_text_description.text = item.description
         holder.itemView.element_text_date.text = Util.convertedTime(item.date)
-        if (item.amountType) {
+        if (item.amountType == 1) {
             holder.itemView.circle_image.setImageResource(R.drawable.income)
         } else {
             holder.itemView.circle_image.setImageResource(R.drawable.expense)

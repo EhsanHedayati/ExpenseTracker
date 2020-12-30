@@ -20,7 +20,7 @@ class IncomeEntryFragment : Fragment() {
     private lateinit var expense: Expense
     private var receivedTime: Long? = null
     private lateinit var incomeEntryViewModel: IncomeEntryViewModel
-    private var amountType: Boolean? = null
+    private var amountType: Int? = null
 
 
     override fun onCreateView(
@@ -79,7 +79,7 @@ class IncomeEntryFragment : Fragment() {
         val date = this.receivedTime
         val description = income_entry_description.text.toString()
         val amountType = amountType
-        expense = Expense(0, title, amount, date ?: 0, description, amountType ?: false)
+        expense = Expense(0, title, amount, date ?: 0, description, amountType ?: 2)
         incomeEntryViewModel.insertExpense(expense)
     }
 

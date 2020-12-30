@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_expense_entry.view.*
 class ExpenseEntryFragment : Fragment() {
     private lateinit var expense: Expense
     private var receivedTime: Long? = null
-    private var amountType: Boolean? = null
+    private var amountType: Int? = null
     var title: String? = null
 
     private lateinit var expenseEntryViewModel: ExpenseEntryViewModel
@@ -95,7 +95,7 @@ class ExpenseEntryFragment : Fragment() {
         val date = this.receivedTime
         val description = view?.expense_entry_description?.text.toString()
         val amountType = this.amountType
-        expense = Expense(0,newTitle ?: "", amount, date ?: 0, description, amountType ?: false)
+        expense = Expense(0,newTitle ?: "", amount, date ?: 0, description, amountType ?: 2)
         expenseEntryViewModel.insertExpense(expense)
 
     }

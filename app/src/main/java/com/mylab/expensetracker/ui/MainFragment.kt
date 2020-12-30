@@ -26,14 +26,14 @@ class MainFragment : Fragment() {
         button_income.setOnClickListener {
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToIncomeEntryFragment(
-                    true
+                    1
                 )
             )
         }
         button_expense.setOnClickListener {
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToExpenseEntryFragment(
-                    false
+                    0
                 )
             )
         }
@@ -41,5 +41,13 @@ class MainFragment : Fragment() {
         button_list.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_listFragment)
         }
+
+        button_reports.setOnClickListener {
+
+            findNavController().navigate(R.id.action_mainFragment_to_reportsFragment)
+
+        }
+
+
     }
 }
