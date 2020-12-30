@@ -1,6 +1,7 @@
 package com.mylab.expensetracker.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +12,12 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.mylab.expensetracker.R
-import com.mylab.expensetracker.datamodel.ExpenseIncomeBar
-import kotlinx.android.synthetic.main.fragment_bar_chart1.*
+import com.mylab.expensetracker.datamodel.ExpenseBar
+import kotlinx.android.synthetic.main.fragment_bar_chart.*
+import kotlinx.android.synthetic.main.fragment_bar_chart2.*
 
 
-class BarChartFragment1 : Fragment() {
+class BarChartFragment2 : Fragment() {
 
 
     override fun onCreateView(
@@ -23,37 +25,41 @@ class BarChartFragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bar_chart1, container, false)
+        return inflater.inflate(R.layout.fragment_bar_chart2, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val expInc = BarChartFragment1Args.fromBundle(requireArguments()).expenseincomebar
-        getExpenseIncomeChart(expInc)
+        val incomeList = BarChartFragment2Args.fromBundle(requireArguments()).incomeBarList
+        Log.i("MyTag", incomeList.toString())
 
+        getChart(incomeList)
 
     }
 
-    private fun getExpenseIncomeChart(expInc: ExpenseIncomeBar) {
+    private fun getChart(incomeList: ExpenseBar) {
         val pieEntries = ArrayList<PieEntry>()
-        pieEntries.add(PieEntry(expInc.expense.toFloat(), "هزینه ها"))
-        pieEntries.add(PieEntry(expInc.income.toFloat(), "درآمدها"))
 
-        pi_chart_expInc.animateXY(5000, 5000)
-        val pieDataSet = PieDataSet(pieEntries, "هزینه ها درآمدها")
+        incomeList.expenseBarList.forEach {
+            pieEntries.add(PieEntry(it.amount.toFloat(), it.title))
+        }
+
+
+
+        val pieDataSet = PieDataSet(pieEntries, "نمودار درآمدها")
         pieDataSet.colors = ColorTemplate.COLORFUL_COLORS.toList()
 
         val pieData = PieData(pieDataSet)
         pieData.setValueTextSize(10f)
-
-        pi_chart_expInc.data = pieData
-        pi_chart_expInc.isDrawHoleEnabled = false
+        pi_chart_income.animateXY(5000, 5000)
+        pi_chart_income.data = pieData
+        pi_chart_income.isDrawHoleEnabled = false
 
         val description = Description()
-        description.text = "مقایسه هزینه ها و درآمدها"
-        pi_chart_expInc.description = description
+        description.text = "درآمدها در بازه زمانی"
+        pi_chart_income.description = description
 
-        pi_chart_expInc.invalidate()
+        pi_chart_income.invalidate()
     }
 }

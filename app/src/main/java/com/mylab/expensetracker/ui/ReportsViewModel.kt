@@ -29,6 +29,7 @@ class ReportsViewModel(application: Application) : AndroidViewModel(application)
 
     private var repository: ExpenseRepository
     var list = MutableLiveData<List<Expense>>()
+    var incomeList = MutableLiveData<List<Expense>>()
 
     var incomeExpense = MutableLiveData<ArrayList<Long>>()
 
@@ -70,6 +71,15 @@ class ReportsViewModel(application: Application) : AndroidViewModel(application)
             list.postValue(repository.dateRangeQuery(startDate, endDate))
 
         }
+    }
+
+    fun incomeDateRangeQuery(startDate: Long, endDate: Long) {
+        viewModelScope.launch(Dispatchers.IO) {
+
+            incomeList.postValue(repository.incomeDateRangeQuery(startDate, endDate))
+
+        }
+
     }
 
 

@@ -63,13 +63,24 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_text_reports_to_date" />
 
     <Button
-        android:id="@+id/button_query_2"
-        android:layout_width="192dp"
+        android:id="@+id/button_query_1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="مقایسه درآمد و هزینه ها"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="نمودار درآمدها در فاصله زمانی"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_query" />
+
+    <Button
+        android:id="@+id/button_query_2"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="مقایسه درآمد و هزینه ها"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_query_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

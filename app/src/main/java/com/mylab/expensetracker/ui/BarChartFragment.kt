@@ -52,6 +52,7 @@ class BarChartFragment : Fragment() {
         val pieData = PieData(pieDataSet)
         pieData.setValueTextSize(10f)
         pi_chart.data = pieData
+        pi_chart.isDrawHoleEnabled = false
 
         val description = Description()
         description.text = "هزینه مصرفی در بازه زمانی"

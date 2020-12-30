@@ -67,6 +67,34 @@ class ReportsFragment : Fragment() {
 
         }
 
+        button_query_1.setOnClickListener {
+
+            if (view?.edit_text_reports_from_date?.text.isNullOrEmpty()
+                && view?.edit_text_reports_to_date?.text.isNullOrEmpty()
+            ) {
+
+                Toast.makeText(
+                    requireContext(),
+                    "تاریخ شروع و پایان مشخص گردد",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            } else {
+
+                reportsViewModel.incomeDateRangeQuery(startDate ?: 0, endDate ?: 0)
+                reportsViewModel.incomeList.observe(viewLifecycleOwner) {
+                    val mExpenseBar = ExpenseBar(it)
+                    findNavController().navigate(
+                        ReportsFragmentDirections.actionReportsFragmentToBarChartFragment2(
+                            mExpenseBar
+                        )
+                    )
+                }
+
+            }
+
+
+        }
 
 
 

@@ -27,6 +27,9 @@ interface ExpenseDao {
     @Query("SELECT * FROM expense_table WHERE date BETWEEN :startDate AND :endDate AND amountType = 0")
     suspend fun expenseDateRangeQuery(startDate: Long, endDate: Long): List<Expense>
 
+    @Query("SELECT * FROM expense_table WHERE date BETWEEN :startDate AND :endDate AND amountType = 1")
+    suspend fun incomeDateRangeQuery(startDate: Long, endDate: Long): List<Expense>
+
     @Query("SELECT SUM(amount) FROM expense_table WHERE date BETWEEN :startDate AND :endDate AND amountType = 1")
      suspend fun incomeSumQuery(startDate: Long, endDate: Long):Long
 

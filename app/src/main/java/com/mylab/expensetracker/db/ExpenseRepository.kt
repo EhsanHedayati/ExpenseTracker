@@ -37,6 +37,11 @@ class ExpenseRepository(private val expenseDao: ExpenseDao) {
 
     }
 
+    suspend fun incomeDateRangeQuery(startDate: Long, endDate: Long): List<Expense> {
+        return expenseDao.incomeDateRangeQuery(startDate, endDate)
+
+    }
+
     suspend fun incomeSumQuery(startDate: Long, endDate: Long): Long {
         return expenseDao.incomeSumQuery(startDate, endDate)
     }

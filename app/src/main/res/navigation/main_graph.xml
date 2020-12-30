@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/reportsFragment"
         android:name="com.mylab.expensetracker.ui.ReportsFragment"
-        android:label="گزارشات"
+        android:label="گزارش ها"
         tools:layout="@layout/fragment_reports" >
         <action
             android:id="@+id/action_reportsFragment_to_barChartFragment"
@@ -69,6 +69,9 @@
         <action
             android:id="@+id/action_reportsFragment_to_barChartFragment1"
             app:destination="@id/barChartFragment1" />
+        <action
+            android:id="@+id/action_reportsFragment_to_barChartFragment2"
+            app:destination="@id/barChartFragment2" />
     </fragment>
     <fragment
         android:id="@+id/barChartFragment"
@@ -87,5 +90,14 @@
         <argument
             android:name="expenseincomebar"
             app:argType="com.mylab.expensetracker.datamodel.ExpenseIncomeBar" />
+    </fragment>
+    <fragment
+        android:id="@+id/barChartFragment2"
+        android:name="com.mylab.expensetracker.ui.BarChartFragment2"
+        android:label="نمودار درآمدها"
+        tools:layout="@layout/fragment_bar_chart2" >
+        <argument
+            android:name="incomeBarList"
+            app:argType="com.mylab.expensetracker.datamodel.ExpenseBar" />
     </fragment>
 </navigation>
