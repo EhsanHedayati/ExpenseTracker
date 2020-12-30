@@ -72,34 +72,34 @@ class EditDeleteViewModel(application: Application) : AndroidViewModel(applicati
             .setShowInBottomSheet(true)
             .setListener(object : Listener {
                 override fun onDateSelected(persianCalendar: PersianCalendar) {
-                    Log.d(
+                    /*Log.d(
                         Constants.TAG,
                         "onDateSelected: " + persianCalendar.gregorianChange
-                    ) //Fri Oct 15 03:25:44 GMT+04:30 1582
+                    )*/ //Fri Oct 15 03:25:44 GMT+04:30 1582
                     //Log.d(Constants.TAG, "onDateSelected: " + persianCalendar.timeInMillis) //1583253636577
                     _longTime.value = persianCalendar.timeInMillis
 
-                    Log.d(
+                    /*Log.d(
                         Constants.TAG,
                         "onDateSelected: " + persianCalendar.time
-                    ) //Tue Mar 03 20:10:36 GMT+03:30 2020
-                    Log.d(Constants.TAG, "onDateSelected: " + persianCalendar.delimiter) //  /
+                    )*/ //Tue Mar 03 20:10:36 GMT+03:30 2020
+                    /*Log.d(Constants.TAG, "onDateSelected: " + persianCalendar.delimiter) //  /
                     Log.d(
                         Constants.TAG,
                         "onDateSelected: " + persianCalendar.persianLongDate
-                    ) // سه‌شنبه  13  اسفند  1398
-                    Log.d(
+                    )*/ // سه‌شنبه  13  اسفند  1398
+                    /*Log.d(
                         Constants.TAG,
                         "onDateSelected: " + persianCalendar.persianLongDateAndTime
-                    ) //سه‌شنبه  13  اسفند  1398 ساعت 20:10:36
-                    Log.d(
+                    )*/ //سه‌شنبه  13  اسفند  1398 ساعت 20:10:36
+                    /*Log.d(
                         Constants.TAG,
                         "onDateSelected: " + persianCalendar.persianMonthName
-                    ) //اسفند
-                    Log.d(
+                    )*/ //اسفند
+                    /*Log.d(
                         Constants.TAG,
                         "onDateSelected: " + persianCalendar.isPersianLeapYear
-                    ) //false
+                    )*/ //false
                     /*Toast.makeText(
                         context,
                         persianCalendar.persianYear.toString() + "/" + persianCalendar.persianMonth + "/" + persianCalendar.persianDay,

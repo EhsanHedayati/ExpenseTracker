@@ -45,6 +45,7 @@ class BarChartFragment1 : Fragment() {
         pieDataSet.colors = ColorTemplate.COLORFUL_COLORS.toList()
 
         val pieData = PieData(pieDataSet)
+        pieData.setValueTextSize(10f)
         pi_chart_expInc.data = pieData
 
         val description = Description()
