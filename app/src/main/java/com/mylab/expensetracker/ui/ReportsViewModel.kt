@@ -43,13 +43,16 @@ class ReportsViewModel(application: Application) : AndroidViewModel(application)
 
         viewModelScope.launch(Dispatchers.IO) {
 
-            val income = repository.incomeSumQuery(startDate, endDate)
-            val expense = repository.expenseSumQuery(startDate, endDate)
-            val incExp = ArrayList<Long>()
-            incExp.add(income)
-            incExp.add(expense)
-            incomeExpense.postValue(incExp)
 
+            val income: Long? = repository.incomeSumQuery(startDate, endDate)
+            val expense: Long? = repository.expenseSumQuery(startDate, endDate)
+            val incExp = ArrayList<Long>()
+
+            income?.let { incExp.add(income) }
+            expense?.let { incExp.add(expense) }
+
+
+            incomeExpense.postValue(incExp)
 
         }
 

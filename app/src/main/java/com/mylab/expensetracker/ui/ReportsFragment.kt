@@ -83,12 +83,21 @@ class ReportsFragment : Fragment() {
 
                 reportsViewModel.incomeDateRangeQuery(startDate ?: 0, endDate ?: 0)
                 reportsViewModel.incomeList.observe(viewLifecycleOwner) {
-                    val mExpenseBar = ExpenseBar(it)
-                    findNavController().navigate(
-                        ReportsFragmentDirections.actionReportsFragmentToBarChartFragment2(
-                            mExpenseBar
+                    if (it.isNotEmpty()) {
+                        val mExpenseBar = ExpenseBar(it)
+                        findNavController().navigate(
+                            ReportsFragmentDirections.actionReportsFragmentToBarChartFragment2(
+                                mExpenseBar
+                            )
                         )
-                    )
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "هیچ مقادیری برای بازه مورد نظر وجود ندارد",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
                 }
 
             }
@@ -129,12 +138,24 @@ class ReportsFragment : Fragment() {
             reportsViewModel.incomeExpenseSumQuery(startDate ?: 0, endDate ?: 0)
             reportsViewModel.incomeExpense.observe(viewLifecycleOwner) {
 
-                val expenseIncome = ExpenseIncomeBar(it[1], it[0])
-                findNavController().navigate(
-                    ReportsFragmentDirections.actionReportsFragmentToBarChartFragment1(
-                        expenseIncome
+                if (it.size > 0) {
+
+                    val expenseIncome = ExpenseIncomeBar(it[1], it[0])
+                    findNavController().navigate(
+                        ReportsFragmentDirections.actionReportsFragmentToBarChartFragment1(
+                            expenseIncome
+                        )
                     )
-                )
+
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "هیچ مقادیری برای بازه مورد نظر وجود ندارد",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+
 
             }
 
@@ -157,10 +178,22 @@ class ReportsFragment : Fragment() {
         } else {
             reportsViewModel.dateRangeQuery(startDate ?: 0, endDate ?: 0)
             reportsViewModel.list.observe(viewLifecycleOwner) {
-                val myExpenseBar = ExpenseBar(it)
-                findNavController().navigate(
-                    ReportsFragmentDirections.actionReportsFragmentToBarChartFragment(myExpenseBar)
-                )
+                if (it.isNotEmpty()) {
+                    val myExpenseBar = ExpenseBar(it)
+                    findNavController().navigate(
+                        ReportsFragmentDirections.actionReportsFragmentToBarChartFragment(
+                            myExpenseBar
+                        )
+                    )
+
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "هیچ مقادیری برای بازه مورد نظر وجود ندارد",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
             }
 
         }
